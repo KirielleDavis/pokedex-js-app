@@ -25,10 +25,15 @@ let pokemonList =
 }
 ];
 //display pokemon and show which which one is the biggest
-for (let i = 0; i < pokemonList.length; i++) {
+/*for (let i = 0; i < pokemonList.length; i++) {
   document.write(pokemonList[i].name + ' ' + "(height:" + ' ' + pokemonList[i].height + ') ');
   if (pokemonList[i].height > 1) { 
     document.write("- Wow, that's big!");
   }
   document.write('<br>');
-}
+}*/
+
+//display pokemon with a forEach loop instead of a for loop
+pokemonList.forEach(function(pokemon) {
+  document.write(pokemon.name + ' ' + "(height:" + ' ' + pokemon.height + ') ' + '<br>');
+})
