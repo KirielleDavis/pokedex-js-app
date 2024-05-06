@@ -1,3 +1,5 @@
+let pokemonRepository = (function () {
+
 let pokemonList =
 [{
   name: 'Zubat', 
@@ -24,6 +26,8 @@ let pokemonList =
   weight: '33.9 kg'
 }
 ];
+
+
 //display pokemon and show which which one is the biggest
 /*for (let i = 0; i < pokemonList.length; i++) {
   document.write(pokemonList[i].name + ' ' + "(height:" + ' ' + pokemonList[i].height + ') ');
@@ -33,7 +37,21 @@ let pokemonList =
   document.write('<br>');
 }*/
 
+
+function add(pokemon) {
+  pokemonList.push(pokemon);
+}
+function getAll() {
+  return pokemonList;
+}
+
+return {
+  add: add,
+  getAll: getAll
+};
+})();
+
 //display pokemon with a forEach loop instead of a for loop
-pokemonList.forEach(function(pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon) {
   document.write(pokemon.name + ' ' + "(height:" + ' ' + pokemon.height + ') ' + '<br>');
 })
