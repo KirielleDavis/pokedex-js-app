@@ -26,9 +26,7 @@ let pokemonRepository = (function () {
     loadDetails(pokemon).then(function() {
       showModal(
         pokemon.name,
-        'Height: ' + pokemon.height,
-        pokemon.imageUrl
-      );
+        'Height: ' + pokemon.height, pokemon.imageFrontUrl);
       console.log(pokemon);
     });
   } 
@@ -51,17 +49,22 @@ let pokemonRepository = (function () {
 
   //function that loads the list of pokemon for the cards
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
+    return fetch(apiUrl).then(function (response){ //fetch returns a promise
+      return response.json(); //.json() returns a promise
     }).then(function (json) {
+
+      // forEach object in the parsed JSON Pokemon data
       json.results.forEach(function (item) {
+        // Create a simple Pokemon object with name & detailsUrl
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
         };
+        // Add the pokemon object to the repository list
         add(pokemon);
         console.log(pokemon);
       });
+
     }).catch(function (e) {
       console.error(e);
     })
@@ -70,14 +73,21 @@ let pokemonRepository = (function () {
   //function promise preps info for the modal
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
+    return fetch(url).then(function (response) { //fetch returns promise to load external details
+      return response.json(); // /.json also returns a promise with parsed JSON data
     }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
+
+      // Add the details form the resolved promise to the Pokemon item
+      item.imageFrontUrl = details.sprites.front_default;
+      item.imageBackUrl = details.sprites.back_default;
+      item.order = details.order;
       item.height = details.height;
       item.types = details.types;
+      item.abilities = details.abilities
+
     }).catch(function (e) {
-      console.error(e);
+      console.error('pokemonRepository.loadDetails()|ERROR|'+e);
+      alert('Error while loading Pokemon information :'+e)
     });
   }
 
@@ -101,8 +111,8 @@ let pokemonRepository = (function () {
 
     let imageElement = document.createElement("img");
     imageElement.setAttribute("src", img);
-    imageElement.src = pokemon.imageURL; // set the image source to the sprite URL
-    imageElement.setAttribute('alt', pokemon.name + ' sprite');
+    imageElement.src = img; // set the image source to the sprite URL
+    imageElement.setAttribute('alt', title + ' sprite');
 
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
@@ -111,6 +121,8 @@ let pokemonRepository = (function () {
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
+
+    $('#myModal').modal('show');
 
     function hideModal() {
       modalContainer.classList.remove('is-visible');
@@ -137,6 +149,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
+
   };
 })();
 
