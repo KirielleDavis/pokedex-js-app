@@ -1,67 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device=width", initial-scale="1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="dist/css/styles.css">
-        <title>Pokedex JS App</title>
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device=width" , initial-scale="1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="dist/css/styles.css" />
+    <title>Pokedex JS App</title>
+  </head>
 
-    <body>
-        <nav class="navbar navbar-fixed-top header">
-            <div class="navigation_logo container-fluid">
-                <div class="navbar-header">
-                </div>
-            </div>
-        </nav>
+  <body>
+    <nav class="navbar navbar-fixed-top header">
+      <div class="navigation_logo container-fluid">
+        <div class="navbar-header"></div>
+      </div>
+    </nav>
 
     <main>
-        <div class="container">
-            <h1>Pokedex</h1>
-            <p class="loading"></p>
-            <p>List of some Pokemons stats</p>
-            <ul class="list-group pokemon-list"></ul>
-            <!-- MODAL-->
-             <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!--MODAL CONTENT-->
-                    <div id="modal-container"></div>
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class ="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Sharing text inside the modal.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <h1>Pokedex</h1>
+        <p class="loading"></p>
+        <p>List of some Pokemons stats</p>
+        <ul class="list-group pokemon-list"></ul>
+        <!-- MODAL-->
+        <div
+          class="modal fade"
+          id="myModal"
+          role="dialog"
+          style="display: none"
+        >
+          <div class="modal-dialog">
+            <!--MODAL CONTENT-->
+            <div id="modal-container"></div>
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                  &times;
+                </button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                <p>Sharing text inside the modal.</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </main>
-    <footer>
-        
-    </footer>
-        <!---Scripts-->
-        <strong>
-            <script src="dist/js/promise-polyfill.js"></script>
-            <script src="dist/js/fetch-polyfill.js"></script>
-            <script src="dist/js/scripts.js"></script>
-            <script 
-                src="https://code.jquery.com/jquery-3.3.1.min.js"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
-        </strong>
+    <footer></footer>
+    <!---Scripts-->
+    <strong>
+      <script src="dist/js/promise-polyfill.js"></script>
+      <script src="dist/js/fetch-polyfill.js"></script>
+      <script src="dist/js/scripts.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"
+      ></script>
+    </strong>
 
-
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
-
-
